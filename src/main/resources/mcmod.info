@@ -1,0 +1,16 @@
+[
+{
+  "modid": "badmod",
+  "name": "Badlion Staff Mod",
+  "description": "Badlion Staff Mod made by me, JustDontDie",
+  "version": "1.0.1",
+  "mcversion": "${mcversion}",
+  "url": "https://www.badlion.net/forum/thread/200753",
+  "updateUrl": "https://www.badlion.net/forum/thread/200753",
+  "authorList": ["JustDontDie"],
+  "credits": "JackyFTW, arrayofc, Lancy_y, and Stevyb0t for testing",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
