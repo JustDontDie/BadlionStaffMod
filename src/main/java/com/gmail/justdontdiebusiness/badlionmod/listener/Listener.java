@@ -65,6 +65,8 @@ public abstract class Listener extends ListenerAdapter {
     public abstract String getOkCommand();
 
     public void toggle(boolean on) {
+        if (this.on == on) return;
+
         this.on = on;
 
         if (on)

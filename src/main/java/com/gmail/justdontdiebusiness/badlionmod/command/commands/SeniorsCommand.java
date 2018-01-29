@@ -123,7 +123,7 @@ public class SeniorsCommand extends StaffCommand {
                             if (args.length == 2) {
                                 if (args[1].contains("-")) {
                                     String additionalNames = StringUtils.combineArgs(args, 1);
-                                    getMod().getDiscordUser().getTextChannelById(283640460013076490L).sendMessage("IP check " + args[0] + " please. 2nd IGNs: " + additionalNames).complete();
+                                    getMod().getDiscordUser().getTextChannelById(283640460013076490L).sendMessage("IP check " + additionalNames + " please. 2nd IGNs: " + additionalNames).complete();
                                 } else {
                                     getMod().getDiscordUser().getTextChannelById(283640460013076490L).sendMessage("IP check " + args[0] + " please. 2nd IGN: " + args[1]).complete();
                                 }

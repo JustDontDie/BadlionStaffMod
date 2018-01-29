@@ -1,6 +1,7 @@
 package com.gmail.justdontdiebusiness.badlionmod.handler;
 
 import com.gmail.justdontdiebusiness.badlionmod.BadlionMod;
+import com.gmail.justdontdiebusiness.badlionmod.utils.UpdateChecker;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -8,9 +9,11 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.network.FMLNetworkEvent;
 import net.dv8tion.jda.core.JDA;
 import net.minecraft.client.Minecraft;
+import net.minecraft.event.ClickEvent;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
 import net.minecraftforge.common.MinecraftForge;
 
 import java.util.concurrent.TimeUnit;
@@ -56,7 +59,22 @@ public class ConnectionHandler {
                     //But if it does and if it can't tell you if it has been loaded, then at least say when it loads
                     //or tell the user what is going on.
                     FMLCommonHandler.instance().bus().register(new DiscordAPIHandler(ConnectionHandler.this.mod));
-                    System.out.println("Still null :(");
+                }
+
+                if (UpdateChecker.hasUpdate()) {
+                    if (UpdateChecker.hasUpdate()) {
+                        IChatComponent message = new ChatComponentText("[" + EnumChatFormatting.BOLD + "BL-Staff" + EnumChatFormatting.GREEN + "] There is a new update available! Get it here: ");
+                        IChatComponent link = new ChatComponentText("https://www.badlion.net/forum/thread/200753");
+
+                        message.getChatStyle().setColor(EnumChatFormatting.GREEN);
+                        link.getChatStyle().setColor(EnumChatFormatting.DARK_GREEN);
+
+                        link.getChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.badlion.net/forum/thread/200753"));
+
+                        message.appendSibling(link);
+
+                        Minecraft.getMinecraft().ingameGUI.getChatGUI().printChatMessage(message);
+                    }
                 }
             }
         }).start();
